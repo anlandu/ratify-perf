@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo2
+  namespace: governed
+spec:
+  containers:
+  - name: 
+    image: addonregistry.azurecr.io/:latest # unsigned

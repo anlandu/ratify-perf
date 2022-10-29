@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: perf-deployment
+  namespace: governed
+  labels:
+    app: 1tag75sigs
+spec:
+  replicas: 10000
+  selector:
+    matchLabels:
+      app: 1tag75sigs
+  template:
+    metadata:
+      labels:
+        app: 1tag75sigs
+    spec:
+      containers:
+      - name: 1tag75sigs
+        image: addonregistry.azurecr.io/1tag75sigs:latest

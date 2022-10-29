@@ -1,0 +1,157 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 75images4
+  namespace: governed
+spec:
+  containers:
+    - name: 75tags1sig1
+      image: addonregistry.azurecr.io/75tags1sig:1
+    - name: 75tags1sig2
+      image: addonregistry.azurecr.io/75tags1sig:2
+    - name: 75tags1sig3
+      image: addonregistry.azurecr.io/75tags1sig:3
+    - name: 75tags1sig4
+      image: addonregistry.azurecr.io/75tags1sig:4
+    - name: 75tags1sig5
+      image: addonregistry.azurecr.io/75tags1sig:5
+    - name: 75tags1sig6
+      image: addonregistry.azurecr.io/75tags1sig:6
+    - name: 75tags1sig7
+      image: addonregistry.azurecr.io/75tags1sig:7
+    - name: 75tags1sig8
+      image: addonregistry.azurecr.io/75tags1sig:8
+    - name: 75tags1sig9
+      image: addonregistry.azurecr.io/75tags1sig:9
+    - name: 75tags1sig10
+      image: addonregistry.azurecr.io/75tags1sig:10
+    - name: 75tags1sig11
+      image: addonregistry.azurecr.io/75tags1sig:11
+    - name: 75tags1sig12
+      image: addonregistry.azurecr.io/75tags1sig:12
+    - name: 75tags1sig13
+      image: addonregistry.azurecr.io/75tags1sig:13
+    - name: 75tags1sig14
+      image: addonregistry.azurecr.io/75tags1sig:14
+    - name: 75tags1sig15
+      image: addonregistry.azurecr.io/75tags1sig:15
+    - name: 75tags1sig16
+      image: addonregistry.azurecr.io/75tags1sig:16
+    - name: 75tags1sig17
+      image: addonregistry.azurecr.io/75tags1sig:17
+    - name: 75tags1sig18
+      image: addonregistry.azurecr.io/75tags1sig:18
+    - name: 75tags1sig19
+      image: addonregistry.azurecr.io/75tags1sig:19
+    - name: 75tags1sig20
+      image: addonregistry.azurecr.io/75tags1sig:20
+    - name: 75tags1sig21
+      image: addonregistry.azurecr.io/75tags1sig:21
+    - name: 75tags1sig22
+      image: addonregistry.azurecr.io/75tags1sig:22
+    - name: 75tags1sig23
+      image: addonregistry.azurecr.io/75tags1sig:23
+    - name: 75tags1sig24
+      image: addonregistry.azurecr.io/75tags1sig:24
+    - name: 75tags1sig25
+      image: addonregistry.azurecr.io/75tags1sig:25
+    - name: 75tags1sig26
+      image: addonregistry.azurecr.io/75tags1sig:26
+    - name: 75tags1sig27
+      image: addonregistry.azurecr.io/75tags1sig:27
+    - name: 75tags1sig28
+      image: addonregistry.azurecr.io/75tags1sig:28
+    - name: 75tags1sig29
+      image: addonregistry.azurecr.io/75tags1sig:29
+    - name: 75tags1sig30
+      image: addonregistry.azurecr.io/75tags1sig:30
+    - name: 75tags1sig31
+      image: addonregistry.azurecr.io/75tags1sig:31
+    - name: 75tags1sig32
+      image: addonregistry.azurecr.io/75tags1sig:32
+    - name: 75tags1sig33
+      image: addonregistry.azurecr.io/75tags1sig:33
+    - name: 75tags1sig34
+      image: addonregistry.azurecr.io/75tags1sig:34
+    - name: 75tags1sig35
+      image: addonregistry.azurecr.io/75tags1sig:35
+    - name: 75tags1sig36
+      image: addonregistry.azurecr.io/75tags1sig:36
+    - name: 75tags1sig37
+      image: addonregistry.azurecr.io/75tags1sig:37
+    - name: 75tags1sig38
+      image: addonregistry.azurecr.io/75tags1sig:38
+    - name: 75tags1sig39
+      image: addonregistry.azurecr.io/75tags1sig:39
+    - name: 75tags1sig40
+      image: addonregistry.azurecr.io/75tags1sig:40
+    - name: 75tags1sig41
+      image: addonregistry.azurecr.io/75tags1sig:41
+    - name: 75tags1sig42
+      image: addonregistry.azurecr.io/75tags1sig:42
+    - name: 75tags1sig43
+      image: addonregistry.azurecr.io/75tags1sig:43
+    - name: 75tags1sig44
+      image: addonregistry.azurecr.io/75tags1sig:44
+    - name: 75tags1sig45
+      image: addonregistry.azurecr.io/75tags1sig:45
+    - name: 75tags1sig46
+      image: addonregistry.azurecr.io/75tags1sig:46
+    - name: 75tags1sig47
+      image: addonregistry.azurecr.io/75tags1sig:47
+    - name: 75tags1sig48
+      image: addonregistry.azurecr.io/75tags1sig:48
+    - name: 75tags1sig49
+      image: addonregistry.azurecr.io/75tags1sig:49
+    - name: 75tags1sig50
+      image: addonregistry.azurecr.io/75tags1sig:50
+    - name: 75tags1sig51
+      image: addonregistry.azurecr.io/75tags1sig:51
+    - name: 75tags1sig52
+      image: addonregistry.azurecr.io/75tags1sig:52
+    - name: 75tags1sig53
+      image: addonregistry.azurecr.io/75tags1sig:53
+    - name: 75tags1sig54
+      image: addonregistry.azurecr.io/75tags1sig:54
+    - name: 75tags1sig55
+      image: addonregistry.azurecr.io/75tags1sig:55
+    - name: 75tags1sig56
+      image: addonregistry.azurecr.io/75tags1sig:56
+    - name: 75tags1sig57
+      image: addonregistry.azurecr.io/75tags1sig:57
+    - name: 75tags1sig58
+      image: addonregistry.azurecr.io/75tags1sig:58
+    - name: 75tags1sig59
+      image: addonregistry.azurecr.io/75tags1sig:59
+    - name: 75tags1sig60
+      image: addonregistry.azurecr.io/75tags1sig:60
+    - name: 75tags1sig61
+      image: addonregistry.azurecr.io/75tags1sig:61
+    - name: 75tags1sig62
+      image: addonregistry.azurecr.io/75tags1sig:62
+    - name: 75tags1sig63
+      image: addonregistry.azurecr.io/75tags1sig:63
+    - name: 75tags1sig64
+      image: addonregistry.azurecr.io/75tags1sig:64
+    - name: 75tags1sig65
+      image: addonregistry.azurecr.io/75tags1sig:65
+    - name: 75tags1sig66
+      image: addonregistry.azurecr.io/75tags1sig:66
+    - name: 75tags1sig67
+      image: addonregistry.azurecr.io/75tags1sig:67
+    - name: 75tags1sig68
+      image: addonregistry.azurecr.io/75tags1sig:68
+    - name: 75tags1sig69
+      image: addonregistry.azurecr.io/75tags1sig:69
+    - name: 75tags1sig70
+      image: addonregistry.azurecr.io/75tags1sig:70
+    - name: 75tags1sig71
+      image: addonregistry.azurecr.io/75tags1sig:71
+    - name: 75tags1sig72
+      image: addonregistry.azurecr.io/75tags1sig:72
+    - name: 75tags1sig73
+      image: addonregistry.azurecr.io/75tags1sig:73
+    - name: 75tags1sig74
+      image: addonregistry.azurecr.io/75tags1sig:74
+    - name: 75tags1sig75
+      image: addonregistry.azurecr.io/75tags1sig:75

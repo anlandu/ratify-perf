@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 1image2
+  namespace: governed
+spec:
+  containers:
+    - name: 1tag150sigs
+      image: addonregistry.azurecr.io/1tag150sigs:latest
