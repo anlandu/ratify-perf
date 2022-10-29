@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: perf-deployment
+  namespace: governed
   labels:
     app: 75tags1sig
 spec:
