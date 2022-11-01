@@ -9,12 +9,22 @@ spec:
   replicas: 10000
   selector:
     matchLabels:
-      app: 1tag75sigs
+      app: 1tag150sigs
   template:
     metadata:
       labels:
-        app: 1tag75sigs
+        app: 1tag150sigs
     spec:
       containers:
-      - name: 1tag75sigs
-        image: addonregistry.azurecr.io/1tag75sigs:latest
+      - name: 1tag150sigs
+        image: addonregistry.azurecr.io/1tag150sigs:latest
+        securityContext:
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+        resources:
+          requests:
+            memory: 1k
+            cpu: 10m
+          limits:
+            memory: 1k
+            cpu: 10m

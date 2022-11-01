@@ -7,3 +7,13 @@ spec:
   containers:
     - name: 1tag150sigs
       image: addonregistry.azurecr.io/1tag150sigs:latest
+      securityContext:
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+      resources:
+        requests:
+          memory: 1k
+          cpu: 10m
+        limits:
+          memory: 1k
+          cpu: 10m
