@@ -26,12 +26,18 @@ if [ -z "${NOTATION_USERNAME}" ] || [ -z "${NOTATION_PASSWORD}" ]; then
   creds
 fi
 
+docker tag ${image}:latest ${registry}.azurecr.io/${repo}:latest
+docker push ${registry}.azurecr.io/${repo}:latest
+if [ "${separate_tags}" = true ];
+then
+  notation sign ${registry}.azurecr.io/${repo}:latest
+fi
+
 for ((i=1;i<=${num_sigs};i++)); do
   if [ "${separate_tags}" = true ];
   then
     docker tag ${image}:latest ${registry}.azurecr.io/${repo}:${i}
     docker push ${registry}.azurecr.io/${repo}:${i}
-    notation sign ${registry}.azurecr.io/${repo}:${i}
   else
     notation sign ${registry}.azurecr.io/${repo}:latest
   fi
