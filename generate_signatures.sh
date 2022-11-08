@@ -1,45 +1,51 @@
 #!/usr/bin/env bash
 
+# NOTE: This script assumes you are pushing to an ACR which has admin
+# credentials enabled and has REGISTRY_USERNAME and REGISTRY_PASSWORD
+# populated
+
 set -e
 programname=$0
 
-usage() { printf "Usage: $0 [-i <local image name>] [-p <ACR repo name>] [-r <ACR registry name>] [-n <number of signatures to create>] [-t <whether each signature should have a distinct tag]" 1>&2; exit 1; }
+usage() { printf "Usage: $0 [-p <ACR repo name>] [-r <ACR registry name>] [-n <number of signatures to create per subject>] [-s <number of subjects to create]" 1>&2; exit 1; }
 creds() { printf "Please set NOTATION_USERNAME and NOTATION_PASSWORD" 1>&2; exit 1; }
 
-separate_tags=false
-while getopts ":i:p:r:n:t" o; do
+while getopts "p:r:n:s:" o; do
   case "${o}" in
-    i) image=${OPTARG} ;;
     p) repo=${OPTARG} ;;
     r) registry=${OPTARG} ;;
     n) num_sigs=${OPTARG} ;;
-    t) separate_tags=true ;;
+    s) num_subjects=${OPTARG} ;;
     *) usage ;;
   esac
 done
-shift "$((OPTIND-1))"
-if [ -z "${image}" ] || [ -z "${registry}" ] || [ -z "${repo}" ] || [ -z "${num_sigs}" ]; then
+
+# check all parameters are specified
+if [ -z "${registry}" ] || [ -z "${repo}" ] || [ -z "${num_sigs}" ] || [ -z "${num_subjects}" ]; then
   usage
 fi
 
-if [ -z "${NOTATION_USERNAME}" ] || [ -z "${NOTATION_PASSWORD}" ]; then
+# check registry credentials are populated as environment variables
+if [ -z "${REGISTRY_USERNAME}" ] || [ -z "${REGISTRY_PASSWORD}" ]; then
   creds
 fi
 
-docker tag ${image}:latest ${registry}.azurecr.io/${repo}:latest
-docker push ${registry}.azurecr.io/${repo}:latest
-if [ "${separate_tags}" = true ];
-then
-  notation sign ${registry}.azurecr.io/${repo}:latest
-fi
+# login into ACR with admin credentials
+docker login ${registry}.azurecr.io -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD}
 
-for ((i=1;i<=${num_sigs};i++)); do
-  if [ "${separate_tags}" = true ];
-  then
-    docker tag ${image}:latest ${registry}.azurecr.io/${repo}:${i}
-    docker push ${registry}.azurecr.io/${repo}:${i}
-  else
-    notation sign ${registry}.azurecr.io/${repo}:latest
-  fi
+# for each subject
+for ((i=1;i<=${num_subjects};i++)); do
+  # build a unique scratch dockerfile and build image
+  echo $'FROM scratch\nCMD ["echo", "image '${i}'"]' > Dockerfile
+  docker build . -t ${registry}.azurecr.io/${repo}:${i}
+  # push new image to specified registry, repo, and tag
+  docker push ${registry}.azurecr.io/${repo}:${i}
+  # delete Dockerfile and image created to reduce clutter
+  rm Dockerfile
+  docker image rm ${registry}.azurecr.io/${repo}:${i}
+  # add specified number of signatures
+  for ((j=1;j<=${num_sigs};j++)); do
+      notation sign -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD} ${registry}.azurecr.io/${repo}:${i}
+  done
 done
 set +e
