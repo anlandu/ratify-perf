@@ -8,7 +8,7 @@ set -e
 programname=$0
 
 usage() { printf "Usage: $0 [-p <ACR repo name>] [-r <ACR registry name>] [-n <number of signatures to create per subject>] [-s <number of subjects to create]" 1>&2; exit 1; }
-creds() { printf "Please set NOTATION_USERNAME and NOTATION_PASSWORD" 1>&2; exit 1; }
+creds() { printf "Please set REGISTRY_USERNAME and REGISTRY_PASSWORD" 1>&2; exit 1; }
 
 while getopts "p:r:n:s:" o; do
   case "${o}" in
