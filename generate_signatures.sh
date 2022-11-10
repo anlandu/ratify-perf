@@ -5,23 +5,21 @@
 # populated
 
 set -e
-programname=$0
 
-usage() { printf "Usage: $0 [-p <ACR repo name>] [-r <ACR registry name>] [-n <number of signatures to create per subject>] [-s <number of subjects to create]" 1>&2; exit 1; }
+usage() { printf "Usage: $0 [-r <ACR registry name> ] [-n <number of signatures to create per subject>] [-s <number of subjects to create]" 1>&2; exit 1; }
 creds() { printf "Please set REGISTRY_USERNAME and REGISTRY_PASSWORD" 1>&2; exit 1; }
 
-while getopts "p:r:n:s:" o; do
+while getopts "r:n:s:" o; do
   case "${o}" in
-    p) repo=${OPTARG} ;;
     r) registry=${OPTARG} ;;
     n) num_sigs=${OPTARG} ;;
     s) num_subjects=${OPTARG} ;;
     *) usage ;;
   esac
 done
-
+repo="${num_sigs}sigs${num_subjects}subjects"
 # check all parameters are specified
-if [ -z "${registry}" ] || [ -z "${repo}" ] || [ -z "${num_sigs}" ] || [ -z "${num_subjects}" ]; then
+if [ -z "${registry}" ] || [ -z "${num_sigs}" ] || [ -z "${num_subjects}" ]; then
   usage
 fi
 
