@@ -38,7 +38,7 @@ for ((m=1;m<=${num_resources};m++)); do
   # for each subject
   for ((i=1;i<=${num_subjects};i++)); do
     # build a unique scratch dockerfile and build image
-    echo $'FROM scratch\nCMD ["echo", "image '${i}'"]' > Dockerfile
+    echo $'FROM scratch\nCMD ["echo", "repository '${repo}' image '${i}'"]' > Dockerfile
     docker build . -t ${registry}.azurecr.io/${repo}:${i}
     # push new image to specified registry, repo, and tag
     docker push ${registry}.azurecr.io/${repo}:${i}
